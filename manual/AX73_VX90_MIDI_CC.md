@@ -1,6 +1,6 @@
 # MIDI CC Parameter Assignments
 
-These values are also available on the Tauntek website as [ax73ccmap.pdf](http://www.tauntek.com/ax73ccmap.pdf)
+This chart is also available on the Tauntek website as [ax73ccmap.pdf](http://www.tauntek.com/ax73ccmap.pdf)
 
 | CC Dec | CC Hex | MIDI Function | AX73 Ref Code | AX73 Function | Notes |
 | - | - | - | - | - | - |

@@ -2,6 +2,8 @@
 
 The Roland GK-13 13-pin guitar cable is interchangeable with the Akai DD-X5013 sampler cable. The cable carries six audio signals, a mono guitar output, program control switches, and a MIDI synthesizer volume signal. 
 
+![13-pin DIN cable](../images/ax73pic40.jpg?raw=true)
+
 | Pin | Signal | Wire Color |
 |-|-|-|
 | 1 | Signal 1 | Brown |
