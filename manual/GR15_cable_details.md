@@ -21,4 +21,4 @@ The Roland GK-13 13-pin guitar cable is interchangeable with the Akai DD-X5013 s
 | 13 | –7VDC power | Black |
 | Shield | Ground | |
 
-* note that wire color may differ from the colors listed above
+* Depending on when and where the cable was made, the wire colors may differ from the colors listed above.
