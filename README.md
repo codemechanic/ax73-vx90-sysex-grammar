@@ -6,8 +6,6 @@ The Akai AX73 and VX90 are six voice analog synthesizers released in 1986 (the V
 
 The grammar files provided here maps the structure of the MIDI System Exclusive File Format for the [Akai AX73 and VX90](https://en.wikipedia.org/wiki/Akai#AX_series_analog_synthesizers), and is based on the generic [MIDI System Exclusive (Sysex) Grammar](https://github.com/codemechanic/midi-sysex-grammar). These files are useful for interpreting Non Real Time Universal System Exclusive Messages.
 
-## Grammar files
-
 Grammar files provide an interface for editing and translating human readable values to and from the binary file, and are used in conjunction with the hex and binary file analysis tools [Synalize It!](https://www.synalysis.net) on macOS and [Hexinator](https://hexinator.com) on Windows. Grammars are stored as XML, support both Python and Lua scripting languages, and can export to C structs as well as inherit structures from object oriented languages.
 
 ## Tauntek firmware
