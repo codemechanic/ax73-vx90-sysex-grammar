@@ -28,7 +28,7 @@ The files found in this repository are intended to be used in conjunction with t
 
 ![AX73 Sysex screenshot](./images/screenshot_1.png?raw=true)
 
-## Details and Charts
+## Charts and Details
 * [Tauntek MIDI CC Chart](./manual/AX73_VX90_MIDI_CC.md)
 * [AX73 and VX90 Voice Chart](./manual/AX73_VX90_voice_chart.md)
 * [Roland GK-13 13-pin DIN guitar cable](./manual/GR15_cable_details.md)
