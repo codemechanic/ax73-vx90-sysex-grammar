@@ -131,4 +131,12 @@
 | 126 | 7E | Poly Mode Off | | | |
 | 127 | 7F | Poly Mode On | | | |
 
+## AX73 to MIDI Values Types:
+
+| AX73 Values | MIDI CC Values | Description |
+|-|-|-|
+| 0-100 | 0-127 | 100 values (VCO Pulse Width E02, VCO Envelope Generator Depth E04 etc.) |
+| 0-3 | 0-31, 32-63, 64-95, 96-127 | 4 values (VCO Octave E00, VCO Waveform E01 etc.) |
+| 0-1 | 0-63, 64-127 | 2 position switch (Noise on/off E05, Sampler Enable on/off E06 etc.) |
+
 <sub><a name="tauntek">1.</a> The [PDF version of this information](http://www.tauntek.com/ax73ccmap.pdf) was written by R. Grieb March 28, 2021 and is available on the Tauntek website.</sub>
