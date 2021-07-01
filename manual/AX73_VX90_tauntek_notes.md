@@ -5,10 +5,10 @@ When configuring a controller to use the CC's, assign parameters that map to jus
 To save all patches via MIDI sysex, initiate a tape save. The sysex dump (exactly 5205 bytes) always contains all of the patches. After the MIDI data has been sent, the tape save operation will take place. This takes a while, so you may want to select just one bank for the tape save first.
 
 ```
-1. TAPE
-2. 0/Save
-3. DOWN
-4. 0/Save
+**1. TAPE**
+**2. 0/Save**
+**3. DOWN**
+**4. 0/Save**
 ```
 
 should do it. That will only send bank 9 to the tape output.
