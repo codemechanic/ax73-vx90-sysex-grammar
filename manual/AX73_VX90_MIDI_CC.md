@@ -131,7 +131,7 @@
 | 126 | 7E | Poly Mode Off | | | |
 | 127 | 7F | Poly Mode On | | | |
 
-## AX73 to MIDI Values Types:
+## AX73 to MIDI Values Types
 
 | AX73 Values | MIDI CC Values | Description |
 |-|-|-|
