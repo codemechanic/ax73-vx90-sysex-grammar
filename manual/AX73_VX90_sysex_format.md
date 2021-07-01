@@ -17,7 +17,7 @@ The voice program block follows the 4 byte sysex header. Each voice program (pat
 | **End of System Exclusive** |-|-|
 | 5204 | F7 | End of System Exclusive byte (EOX) |
 
-AX73 to MIDI Values Types:
+## AX73 to MIDI Values Types:
 
 | AX73 Values | MIDI CC Values | Description |
 |-|-|-|
