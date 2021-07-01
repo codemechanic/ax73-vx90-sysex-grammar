@@ -10,17 +10,17 @@ Grammar files provide an interface for editing and translating human readable va
 
 ## Tauntek Firmware
 
-Bob Grieb of [Tauntek](http://tauntek.com) has released a new [firmware image for the AX73 and VX90](http://www.tauntek.com/AX73.htm) that enables reception of MIDI CC parameter changes. Patch data can also be loaded and saved over MIDI rather than relying on the dedicated Cassette Tape outputs.
+[Tauntek](http://tauntek.com) has released a new [firmware image for the AX73 and VX90](http://www.tauntek.com/AX73.htm) that enables reception of MIDI CC parameter changes. Patch data can also be loaded and saved over MIDI rather than relying on the dedicated cassette tape outputs.
 
 **Improvements:**
 1. Reception of MIDI continuous controller (CC) data
 2. Save and Load patch data as MIDI Sysex
 
-For more information on using the Tauntek firmware and assigning MIDI controller data, please refer to the [Tauntek Firmware Notes](./manual/AX73_VX90_tauntek_notes.md) included here, or the [PDF version](http://www.tauntek.com/ax73ccmap.pdf) available on the Tauntek website.
+For more information on using the Tauntek firmware and assigning MIDI controller data, please refer to the [firmware notes](./manual/AX73_VX90_tauntek_notes.md) included here, or the [PDF version](http://www.tauntek.com/ax73ccmap.pdf) available on the Tauntek website.
 
 ## Useage
 
-The files found in this repository are intended to be used in conjunction with the [Tauntek AX73 firmware](http://www.tauntek.com/AX73.htm). Analyzing AX73 Sysex is possible without the firmware, however controlling the AX73 and VX90 with Midi CCs and/or loading or saving the AX73 Sysex over MIDI requires that you have the Tauntek firmware installed.
+The files found here are intended to be used in conjunction with the [Tauntek AX73 firmware](http://www.tauntek.com/AX73.htm). Analyzing AX73 and VX90 Sysex is possible without the firmware, however controlling those synths with Midi CCs and/or loading or saving Sysex over MIDI requires that you have the Tauntek firmware installed.
 
 1. Download the [akai_ax73_vx90_sysex.grammar](./grammar/ax73_vx90_sysex.grammar?raw=true) and open the grammar with Synalize It! or Hexinator.
 2. Open an Akai AX73 or VX90 MIDI Sysex file. If you don't have one available you can download the [AX73 Sysex files](./sysex/factory/FactoryPatch_Wavetable.syx?raw=true) that are provided as a part of this repository.
@@ -28,7 +28,7 @@ The files found in this repository are intended to be used in conjunction with t
 
 ![AX73 Sysex screenshot](./images/screenshot_1.png?raw=true)
 
-## Charts and Details
+## Charts and More Information
 * [AX73 VX90 Sysex Format](./manual/AX73_VX90_sysex_format.md)
 * [AX73 and VX90 Voice Chart](./manual/AX73_VX90_voice_chart.md)
 * [Tauntek MIDI CC Chart](./manual/AX73_VX90_MIDI_CC.md)
