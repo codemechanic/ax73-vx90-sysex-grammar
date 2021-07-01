@@ -16,11 +16,11 @@ Bob Grieb of [Tauntek](http://tauntek.com) has released a new [firmware image fo
 1. Reception of MIDI continuous controller (CC) data
 2. Save and Load patch data as MIDI Sysex
 
-For more information on using the Tauntek firmware and assigning MIDI controller data, please refer to the [Tauntek Firmware Notes](./manual/AX73_VX90_MIDI_CC.md) included here, or the [PDF version](http://www.tauntek.com/ax73ccmap.pdf) available on the Tauntek website.
+For more information on using the Tauntek firmware and assigning MIDI controller data, please refer to the [Tauntek Firmware Notes](./manual/AX73_VX90_tauntek_notes.md) included here, or the [PDF version](http://www.tauntek.com/ax73ccmap.pdf) available on the Tauntek website.
 
 ## Useage
 
-The files found in this repository are intended to be used in conjunction with the [Tauntek AX73 firmware](http://www.tauntek.com/AX73.htm). Analyzing AX73 Sysex is possible without the firmware, however loading the AX73 Sysex over MIDI requires that you have the Tauntek firmware installed.
+The files found in this repository are intended to be used in conjunction with the [Tauntek AX73 firmware](http://www.tauntek.com/AX73.htm). Analyzing AX73 Sysex is possible without the firmware, however controlling the AX73 and VX90 with Midi CCs and/or loading or saving the AX73 Sysex over MIDI requires that you have the Tauntek firmware installed.
 
 1. Download the [akai_ax73_vx90_sysex.grammar](./grammar/ax73_vx90_sysex.grammar?raw=true) and open the grammar with Synalize It! or Hexinator.
 2. Open an Akai AX73 or VX90 MIDI Sysex file. If you don't have one available you can download the [AX73 Sysex files](./sysex/factory/FactoryPatch_Wavetable.syx?raw=true) that are provided as a part of this repository.
