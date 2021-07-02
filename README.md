@@ -1,6 +1,6 @@
 # Akai AX73 and VX90 MIDI System Exclusive (Sysex) Grammar
 
-![Akai AX73 screenshot](./images/ax73pic40.jpg?raw=true)
+![Akai AX73 screenshot](./images/ax73_tranparent.png?raw=true)
 
 The Akai AX73 and VX90 are six voice analog synthesizers released in 1986 (the VX90 is the rack mount version of the AX73). They used voltage controlled analog oscillators (VCO) as opposed to the more common digitally controlled analog oscillators (DCO) of the time. The AX73 and VX90 have the ability to interface with Akai's samplers (S612, S700, S900, and S950) using a 13 pin DIN sampler connect cable (Akai DD-X5013). Both the AX73 and VX90 run the same OS and firmware EPROM, with the only difference being that the AX73 allows a keyboard "split", while the VX90 does not.
 
