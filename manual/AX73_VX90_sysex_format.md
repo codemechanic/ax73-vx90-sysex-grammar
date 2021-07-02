@@ -5,7 +5,7 @@ The voice program block follows the 4 byte sysex header. Each voice program (pat
 | Byte Index | Hex Value / Range | Description |
 |-|-|-|
 | **Header** |-|-|
-| 0 | F0 | Sysex Status byte |
+| 0 | F0 | Sysex Status byte (SOX) |
 | 1 | 47 | Akai MIDI Manufacturer ID |
 | 2 | 7B | Device ID, chosen at random |
 | 3 | 73 | Product ID |
