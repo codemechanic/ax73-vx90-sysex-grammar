@@ -2,7 +2,7 @@
 
 When configuring a controller to use the CC's, assign parameters that map to just a few values to switches, NOT to sliders. Using a slider for something like the LFO waveform will send many identical requests to the synth as it it moved in-between the threshold values. The synth doesn't detect that the same option is being selected each time, so a lot of time may be wasted processing CC's that don't change anything. Also, in the case of something like the LFO waveform, the firmware may also reset certain LFO variables each time the waveform is selected, even if it was the same one that was already selected. This is because with the original controls there was no way to select the same option over and over again, and the firmware was not designed to handle this.
 
-To save all patches via MIDI sysex, initiate a tape save. The [sysex dump](./manual/AX73_VX90_sysex_format.md) (exactly 5205 bytes) always contains all of the patches. After the MIDI data has been sent, the tape save operation will take place. This takes a while, so you may want to select just one bank for the tape save first.
+To save all patches via MIDI sysex, initiate a tape save. The [sysex dump](../manual/AX73_VX90_sysex_format.md) (exactly 5205 bytes) always contains all of the patches. After the MIDI data has been sent, the tape save operation will take place. This takes a while, so you may want to select just one bank for the tape save first.
 
 ```
 1. TAPE
