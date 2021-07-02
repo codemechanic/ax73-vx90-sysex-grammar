@@ -38,11 +38,11 @@
 | 33 | 21 | Modulation Wheel (LSB) | E28 | EGO Release 0-127 | 0-127 |
 | 34 | 22 | Breath Controller (LSB) | E30 | VCA Level | 0-127 |
 | 35 | 23 | | E31 | VCA Velo | 0-127 0: -50, 64: 0, 127: +50 |
-| 36 | 24 | Foot Controller (LSB) | E40 | LFO destination | 0-31: Off, 32-63: VCO, 64-95: VCF, 96-127: VCA |
-| 37 | 25 | Portamento Time (LSB) | E41 | LFO waveform | 0-24: DnSaw, 25-49: UpSaw, 50-74: Tri, 75-99: Square, 100-127: Random |
-| 38 | 26 | Data Entry (LSB) | E42 | LFO freq | 0-127 |
-| 39 | 27 | Channel Volume (LSB) | E43 | LFO depth | 0-127 |
-| 40 | 28 | Balance (LSB) | E44 | LFO delay | 0-127 |
+| 36 | 24 | Foot Controller (LSB) | E40 | LFO Destination | 0-31: Off, 32-63: VCO, 64-95: VCF, 96-127: VCA |
+| 37 | 25 | Portamento Time (LSB) | E41 | LFO Waveform | 0-24: DnSaw, 25-49: UpSaw, 50-74: Tri, 75-99: Square, 100-127: Random |
+| 38 | 26 | Data Entry (LSB) | E42 | LFO Freq | 0-127 |
+| 39 | 27 | Channel Volume (LSB) | E43 | LFO Depth | 0-127 |
+| 40 | 28 | Balance (LSB) | E44 | LFO Delay | 0-127 |
 | 41 | 29 | | E45 | Chorus | 0-42: Chorus off, 43-85: Mode 1, 86-127: Mode 2 |
 | 42 | 2A | Pan (LSB) | E50 | Assign | 0-42: Poly, 43-85: Dual, 86-127: Unison |
 | 43 | 2B | Expression (LSB) | E51 | Sol Port | 0-127 |
