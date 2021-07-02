@@ -17,7 +17,7 @@
 | 12 | 0C | Effect Control 1 (MSB) | | | |
 | 13 | 0D | Effect Control 2 (MSB) | | | |
 | 14 | 0E | | E00 | VCO Octave | 0-31: 16', 32-63: 8', 64-95: 4', 96-127: 2' |
-| 15 | 0F | | E01 | VCO waveform | 0-31: Saw, 32-63: Tri, 64-95: Pulse, 96-127 Saw+Tri |
+| 15 | 0F | | E01 | VCO Waveform | 0-31: Saw, 32-63: Tri, 64-95: Pulse, 96-127 Saw+Tri |
 | 16 | 10 | General Purpose Controller 1 (MSB) | E02 | VCO Pulse Width | 0-127 |
 | 17 | 11 | General Purpose Controller 2 (MSB) | E03 | VCO PWMS | 0-127 |
 | 18 | 12 | General Purpose Controller 3 (MSB) | E04 | VCO EG Depth | 0-127 |
