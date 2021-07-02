@@ -1,4 +1,4 @@
-# MIDI CC Parameter Assignments<sup>[1](#tauntek)</sup>
+# Akai AX73 VX90 MIDI CC Parameter Assignments<sup>[1](#tauntek)</sup>
 
 | CC Dec | CC Hex | MIDI Function | AX73 Ref Code | AX73 Function | Notes |
 | - | - | - | - | - | - |
