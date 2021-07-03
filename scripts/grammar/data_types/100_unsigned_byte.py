@@ -2,12 +2,11 @@
 
 # This script is intended to be run from within the Akai AX73 and VX90 MIDI Sysex Grammar file
 
-# AX73 VX90 50 signed
+# AX73 VX90 100 unsigned
 #
-# -50 to 50
+# 0 to 100
 
-maxNum = 50
-minNum = -50
+maxNum = 100
 
 def parseByteRange(element, byteView, bitPos, bitLength, results):
 	# this method parses data starting at bitPos, bitLength bits are remaining
@@ -20,16 +19,15 @@ def parseByteRange(element, byteView, bitPos, bitLength, results):
 
 			# read bits
 			result = byteView.readUnsignedIntBits(bitPos+1, 7, ENDIAN_BIG)
-			result = result - 50
 
 			# return value to results
-			if (result >= minNum and result <= maxNum):
+			if (result <= maxNum):
 				value = Value()
 				value.setString(str(result))
 				results.addElement(element, 1, 0, value)
 				processedBytes = 1
 			else:
-				print("Value out of range (" + str(minNum) + "-" + str(maxNum) + ")")
+				print("Value out of range (0-" + str(maxNum) + ")")
 
 	return processedBytes
 
@@ -38,10 +36,9 @@ def fillByteRange(value, byteArray, bitPos, bitLength):
 	"""fillByteRange method"""
 
 	# get number edited by user
-	number = value.getSigned()
-	converted = number + 50
+	number = value.getUnsigned()
 
-	if (number >= minNum and number <= maxNum):
-		byteArray.writeUnsignedIntBits(converted, bitPos, 8, ENDIAN_BIG)
+	if (number <= maxNum):
+		byteArray.writeUnsignedInt(number, bitPos, 1, ENDIAN_BIG)
 	else:
-		print("Input value out of range (" + str(minNum) + "-" + str(maxNum) + "). Value not updated.")
+		print("Input value out of range (0-" + str(maxNum) + "). Value not updated.")
