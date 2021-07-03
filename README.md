@@ -16,7 +16,7 @@ Grammar files provide an interface for editing and translating human readable va
 1. Reception of MIDI continuous controller (CC) data
 2. Save and Load patch data as MIDI Sysex
 
-For more information on using the Tauntek firmware and assigning MIDI controller data, please refer to the [firmware notes](./manual/AX73_VX90_tauntek_notes.md) included here, or the [PDF version](http://www.tauntek.com/ax73ccmap.pdf) available on the Tauntek website.
+For more information on using the Tauntek firmware and assigning MIDI controller data, please refer to the [firmware notes](./docs/AX73_VX90_tauntek_notes.md) included here, or the [PDF version](http://www.tauntek.com/ax73ccmap.pdf) available on the Tauntek website.
 
 ## Useage
 
@@ -29,11 +29,11 @@ The files found here are intended to be used in conjunction with the [Tauntek AX
 ![AX73 Sysex screenshot](./images/screenshot_1.png?raw=true)
 
 ## Charts and More Information
-* [AX73 VX90 Sysex Format](./manual/AX73_VX90_sysex_format.md)
-* [AX73 and VX90 Voice Chart](./manual/AX73_VX90_voice_chart.md)
-* [Tauntek MIDI CC Chart](./manual/AX73_VX90_MIDI_CC.md)
-* [Tauntek Firmware Notes](./manual/AX73_VX90_tauntek_notes.md)
-* [Roland GK-13 13-pin DIN guitar cable](./manual/GR15_cable_details.md)
+* [AX73 VX90 Sysex Format](./docs/AX73_VX90_sysex_format.md)
+* [AX73 and VX90 Voice Chart](./docs/AX73_VX90_voice_chart.md)
+* [Tauntek MIDI CC Chart](./docs/AX73_VX90_MIDI_CC.md)
+* [Tauntek Firmware Notes](./docs/AX73_VX90_tauntek_notes.md)
+* [Roland GK-13 13-pin DIN guitar cable](./docs/GR15_cable_details.md)
 
 ## Special Thanks
 * Bob Grieb for creating the updated firmware for the Akai AX73 and VX90
