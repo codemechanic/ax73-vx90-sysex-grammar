@@ -1,6 +1,10 @@
-# Roland GK-13 13-pin DIN guitar cable
+# Akai DD-X5013 sampler cable
 
-The Roland GK-13 13-pin guitar cable is interchangeable with the Akai DD-X5013 sampler cable. The cable carries six audio signals, a mono guitar output, program control switches, and a MIDI synthesizer volume signal. 
+The Akai DD-X5013 13-pin DIN cable that connects the AX73 and VX90 to the Akai S612, S700, S900, and S950 samplers is interchangable with the more widespread Roland GK-13 13-pin guitar cable.
+
+## Roland GK-13 guitar cable
+
+The Roland GK-13 cable carries six audio signals, a mono guitar output, program control switches, and a MIDI synthesizer volume signal. 
 
 ![13-pin DIN cable](../images/13pin_din.png?raw=true)
 
@@ -20,7 +24,6 @@ The Roland GK-13 13-pin guitar cable is interchangeable with the Akai DD-X5013 s
 | 12 | +7VDC power | White |
 | 13 | –7VDC power | Black |
 | Shield | Ground | |
-
 
 <sub><a name="color">1.</a> Wire colors may differ from those listed here.
 </sub>
