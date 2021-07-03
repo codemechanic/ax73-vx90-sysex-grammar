@@ -190,7 +190,7 @@ def fillByteRange(value, byteArray, bitPos, bitLength):
 	&quot;&quot;&quot;fillByteRange method&quot;&quot;&quot;
 
 	# get number edited by user
-	number = value.getUnsigned()
+	number = value.getSigned()
 	converted = number + 50
 
 	if (number &gt;= minNum and number &lt;= maxNum):
@@ -241,6 +241,34 @@ def fillByteRange(value, byteArray, bitPos, bitLength):
 		byteArray.writeUnsignedIntBits(number, bitPos, 8, ENDIAN_BIG)
 	else:
 		print(&quot;Input value out of range (0-&quot; + str(maxNum) + &quot;). Value not updated.&quot;)
+</source>
+            </script>
+            <script name="test" type="DataType" id="344">
+                <source language="Python"># custom data type script
+
+def parseByteRange(element, byteView, bitPos, bitLength, results):
+	# this method parses data starting at bitPos, bitLength bits are remaining
+	&quot;&quot;&quot;parseByteRange method&quot;&quot;&quot;
+
+	# create and set new value
+	value = Value()
+	value.setString(&quot;Value of custom element&quot;)
+
+	# how many bytes were processed?
+	processedBytes = 0
+	iteration = 0
+
+	results.addElement(element, processedBytes, iteration, value)
+
+	# return number of processed bytes
+	return processedBytes
+
+def fillByteRange(value, byteArray, bitPos, bitLength):
+	# this method translates edited values back to the file
+	&quot;&quot;&quot;fillByteRange method&quot;&quot;&quot;
+
+	# write an integer back to file
+	# byteArray.writeUnsignedIntBits(highWord, bitPos, bitLength, ENDIAN_BIG)
 </source>
             </script>
         </scripts>
