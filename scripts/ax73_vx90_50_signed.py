@@ -38,7 +38,7 @@ def fillByteRange(value, byteArray, bitPos, bitLength):
 	"""fillByteRange method"""
 
 	# get number edited by user
-	number = value.getUnsigned()
+	number = value.getSigned()
 	converted = number + 50
 
 	if (number >= minNum and number <= maxNum):
