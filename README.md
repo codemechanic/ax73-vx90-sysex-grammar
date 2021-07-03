@@ -10,10 +10,10 @@ Grammar files provide an interface for editing and translating human readable va
 
 ## Tauntek Firmware
 
-[Tauntek](http://tauntek.com) has released a new [firmware image for the AX73 and VX90](http://www.tauntek.com/AX73.htm) that enables reception of MIDI CC parameter changes. Patch data can also be loaded and saved over MIDI rather than relying on the dedicated cassette tape outputs.
+[Tauntek](http://tauntek.com) has released a new [firmware image for the AX73 and VX90](http://www.tauntek.com/AX73.htm) that enables reception of [MIDI CC parameter changes](./docs/ax73_vx90_midi_cc.md). Patch data can also be loaded and saved over MIDI rather than relying on the dedicated cassette tape outputs.
 
 **Improvements:**
-1. Reception of MIDI continuous controller (CC) data
+1. Reception of [MIDI continuous controller (CC)](./docs/ax73_vx90_midi_cc.md) data
 2. Save and Load patch data as MIDI Sysex
 
 For more information on using the Tauntek firmware and assigning MIDI controller data, please refer to the [firmware notes](./docs/ax73_vx90_tauntek_notes.md) included here, or the [PDF version](http://www.tauntek.com/ax73ccmap.pdf) available on the Tauntek website.
