@@ -21,8 +21,8 @@
 | 16 | 10 | General Purpose Controller 1 (MSB) | E02 | VCO Pulse Width | 0-127 |
 | 17 | 11 | General Purpose Controller 2 (MSB) | E03 | VCO PWMS | 0-127 |
 | 18 | 12 | General Purpose Controller 3 (MSB) | E04 | VCO EG Depth | 0-127 |
-| 19 | 13 | General Purpose Controller 4 (MSB) | E05 | Noise on/off | 0-63: Noise off, 64-127: Noise on |
-| 20 | 14 | | E06 | Sampler Enable | 0-63: Sampler disabled, 64-127: Sampler enabled |
+| 19 | 13 | General Purpose Controller 4 (MSB) | E05 | Noise off/on | 0-63: Noise off, 64-127: Noise on |
+| 20 | 14 | | E06 | Sampler disabled/enabled | 0-63: Sampler disabled, 64-127: Sampler enabled |
 | 21 | 15 | | E07 | A/B Balance | 0-127 |
 | 22 | 16 | | E12 | VCF OWFM | 0-127 |
 | 23 | 17 | | E13 | VCF EG Depth/Pol | 0-127 0: -50, 64: 0, 127: +50 |
@@ -135,8 +135,8 @@
 
 | AX73 Values | MIDI CC Values | Description |
 |-|-|-|
-| 0-100 | 0-127 | 100 values (VCO Pulse Width E02, VCO Envelope Generator Depth E04 etc.) |
+| 0-100 | 0-127 | 100 values (VCO Pulse Width E02, VCO EG Depth E04 etc.) |
 | 0-3 | 0-31, 32-63, 64-95, 96-127 | 4 values (VCO Octave E00, VCO Waveform E01 etc.) |
-| 0-1 | 0-63, 64-127 | 2 position switch (Noise on/off E05, Sampler Enable on/off E06 etc.) |
+| 0-1 | 0-63, 64-127 | 2 position switch (Noise off/on E05, Sampler disabled/enabled E06 etc.) |
 
 <sub><a name="tauntek">1.</a> The [PDF version of this information](http://www.tauntek.com/ax73ccmap.pdf) was written by R. Grieb March 28, 2021 and is available on the Tauntek website.</sub>
