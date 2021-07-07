@@ -7,7 +7,7 @@
 # -50 to 50
 
 maxNum = 50
-minNum = -50
+minNum = 0 - maxNum
 
 def toSignedInt(number, modifier):
 	number = int(number) - int(modifier)
@@ -28,7 +28,7 @@ def parseByteRange(element, byteView, bitPos, bitLength, results):
 
 			# read bits
 			result = byteView.readUnsignedIntBits(bitPos+1, 7, ENDIAN_BIG)
-			result = toSignedInt(result, 50)
+			result = toSignedInt(result, maxNum)
 
 			# return value to results
 			if (result >= minNum and result <= maxNum):
@@ -48,7 +48,7 @@ def fillByteRange(value, byteArray, bitPos, bitLength):
 	bytePos = bitPos/8
 
 	number = value.getString()
-	converted = toUnsignedInt(number, 50)
+	converted = toUnsignedInt(number, maxNum)
 
 	if (abs(int(number)) <= maxNum):
 		byteArray.writeUnsignedInt(converted, bytePos, 1, ENDIAN_BIG)

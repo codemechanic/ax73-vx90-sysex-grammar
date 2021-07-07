@@ -2,6 +2,7 @@
 
 # The midi_data_byte custom data script is intended to be run from within the MIDI Sysex Grammar file
 
+
 # MIDI Data Byte
 #
 # All bytes between the System Exclusive status byte and EOX (or the next status byte) must have zero in the top bit.
@@ -54,7 +55,6 @@ def fillByteRange(value, byteArray, bitPos, bitLength):
 		print("Input value hex: " + str(numHex))
 
 	if (number < 128):
-		byteArray.deleteRange(bitPos/8, bitLength/16)
 		byteArray.writeUnsignedIntBits(number, bitPos, 8, ENDIAN_BIG)
 	else:
 		print("Input value out of range (0-127). Value not updated.")
