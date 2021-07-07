@@ -101,7 +101,7 @@ def fillByteRange(value, byteArray, bitPos, bitLength):
 # 2 values 0-1
 
 from enum import Enum
-valueLabels = Enum('Sampler', 'on, off', start=0)
+valueLabels = Enum('Sampler', 'disabled, enabled', start=0)
 
 def parseByteRange(element, byteView, bitPos, bitLength, results):
 	# this method parses data starting at bitPos, bitLength bits are remaining
@@ -816,21 +816,21 @@ else:
             <structure name="Oscillator" id="22" length="8" alignment="0" fillcolor="688473">
                 <custom name="VCO Octave (E00)" id="23" script="id:336"/>
                 <custom name="VCO Waveform (E01)" id="24" script="id:337"/>
-                <custom name="VCO Pulse Width (E02)" id="25" script="id:327"/>
-                <custom name="VCO Pulse Width Mod Speed (E03)" id="26" script="id:327"/>
-                <custom name="VCO Envelope Generator (E04)" id="27" script="id:327"/>
-                <custom name="Noise (E05)" id="28" script="id:327"/>
-                <custom name="Sampler (E06)" id="29" script="id:327"/>
-                <custom name="Balance (E07)" id="30" script="id:327"/>
+                <custom name="VCO Pulse Width (E02)" id="25" script="id:341"/>
+                <custom name="VCO Pulse Width Mod Speed (E03)" id="26" script="id:341"/>
+                <custom name="VCO Envelope Generator (E04)" id="27" script="id:341"/>
+                <custom name="Noise (E05)" id="28" script="id:276"/>
+                <custom name="Sampler (E06)" id="29" script="id:277"/>
+                <custom name="Balance (E07)" id="30" script="id:341"/>
             </structure>
             <structure name="Filter" id="32" length="7" alignment="0" fillcolor="879E81">
-                <custom name="VCF Frequency (E10)" id="33" script="id:327"/>
-                <custom name="VCF Resonance (E11)" id="34" script="id:327"/>
-                <custom name="VCF Osc Mod (E12)" id="35" script="id:327"/>
-                <custom name="VCF Envelope Polarity (E13)" id="36" script="id:340"/>
-                <custom name="VCF Key Follow (E14)" id="37" script="id:327"/>
-                <custom name="VCF Velocity (E15)" id="38" script="id:327"/>
-                <custom name="High Pass Filter (E16)" id="39" script="id:327"/>
+                <custom name="VCF Frequency (E10)" id="98" script="id:341"/>
+                <custom name="VCF Resonance (E11)" id="99" script="id:341"/>
+                <custom name="VCF Osc Mod (E12)" id="100" script="id:341"/>
+                <custom name="VCF Envelope Depth / Polarity (E13)" id="101" script="id:340"/>
+                <custom name="VCF Key Follow (E14)" id="102" script="id:341"/>
+                <custom name="VCF Velocity (E15)" id="103" script="id:340"/>
+                <custom name="High Pass Filter (E16)" id="104" script="id:341"/>
             </structure>
             <structure name="Envelope" id="41" length="9" alignment="0" fillcolor="B9C6A7">
                 <custom name="Envelope Mode (E20)" id="42" script="id:327"/>
