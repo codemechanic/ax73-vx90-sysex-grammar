@@ -9,6 +9,14 @@
 maxNum = 50
 minNum = -50
 
+def toSignedInt(number, modifier):
+	number = int(number) - int(modifier)
+	return number
+
+def toUnsignedInt(number, modifier):
+	number = int(number) + int(modifier)
+	return number
+
 def parseByteRange(element, byteView, bitPos, bitLength, results):
 	# this method parses data starting at bitPos, bitLength bits are remaining
 	"""parseByteRange method"""
@@ -20,7 +28,7 @@ def parseByteRange(element, byteView, bitPos, bitLength, results):
 
 			# read bits
 			result = byteView.readUnsignedIntBits(bitPos+1, 7, ENDIAN_BIG)
-			result = result - 50
+			result = toSignedInt(result, 50)
 
 			# return value to results
 			if (result >= minNum and result <= maxNum):
@@ -37,11 +45,12 @@ def fillByteRange(value, byteArray, bitPos, bitLength):
 	# this method translates edited values back to the file
 	"""fillByteRange method"""
 
-	# get number edited by user
-	number = value.getSigned()
-	converted = number + 50
+	bytePos = bitPos/8
 
-	if (number >= minNum and number <= maxNum):
-		byteArray.writeUnsignedInt(converted, bitPos, 1, ENDIAN_BIG)
+	number = value.getString()
+	converted = toUnsignedInt(number, 50)
+
+	if (abs(int(number)) <= maxNum):
+		byteArray.writeUnsignedInt(converted, bytePos, 1, ENDIAN_BIG)
 	else:
 		print("Input value out of range (" + str(minNum) + "-" + str(maxNum) + "). Value not updated.")

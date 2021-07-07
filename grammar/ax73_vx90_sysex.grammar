@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ufwb version="1.17">
-    <grammar name="AX73 VX90 MIDI Sysex" start="id:70" author="Ben Allen" email="codemechanic@gmail.com" fileextension=".syx">
+    <grammar name="AX73 VX90 MIDI Sysex" start="id:6" author="Ben Allen" email="codemechanic@gmail.com" fileextension=".syx">
         <description>Grammar for the Akai AX73 and VX90 Synthesizer MIDI System Exclusive</description>
         <scripts>
             <script name="MIDI Data Byte" type="DataType" id="327">
@@ -62,7 +62,7 @@ def fillByteRange(value, byteArray, bitPos, bitLength):
 		print(&quot;Input value out of range (0-127). Value not updated.&quot;)
                 </source>
             </script>
-            <script name="AX73 VX90 VCO Octave byte" type="DataType" id="336">
+            <script name="4 VCO Octave byte" type="DataType" id="336">
                 <source language="Python">
 # AX73 VX90 VCO Octave byte
 #
@@ -98,16 +98,18 @@ def fillByteRange(value, byteArray, bitPos, bitLength):
 	# this method translates edited values back to the file
 	&quot;&quot;&quot;fillByteRange method&quot;&quot;&quot;
 
+	bytePos = bitPos/8
+
 	# get number edited by user
 	number = value.getUnsigned()
 
 	if (number &lt; len(valueLabels)):
-		byteArray.writeUnsignedIntBits(number, bitPos, 8, ENDIAN_BIG)
+		byteArray.replaceByte(bytePos, number)
 	else:
 		print(&quot;Input value out of range (0-&quot; + str(len(valueLabels)-1) + &quot;). Value not updated.&quot;)
 </source>
             </script>
-            <script name="AX73 VX90 VCO Waveform byte" type="DataType" id="337">
+            <script name="4 VCO Waveform byte" type="DataType" id="337">
                 <source language="Python">
 # AX73 VX90 VCO Waveform byte
 #
@@ -143,16 +145,18 @@ def fillByteRange(value, byteArray, bitPos, bitLength):
 	# this method translates edited values back to the file
 	&quot;&quot;&quot;fillByteRange method&quot;&quot;&quot;
 
+	bytePos = bitPos/8
+
 	# get number edited by user
 	number = value.getUnsigned()
 
 	if (number &lt; len(valueLabels)):
-		byteArray.writeUnsignedIntBits(number, bitPos, 8, ENDIAN_BIG)
+		byteArray.replaceByte(bytePos, number)
 	else:
 		print(&quot;Input value out of range (0-&quot; + str(len(valueLabels)-1) + &quot;). Value not updated.&quot;)
 </source>
             </script>
-            <script name="AX73 VX90 50 signed" type="DataType" id="340">
+            <script name="50 signed" type="DataType" id="340">
                 <source language="Python">
 # AX73 VX90 50 signed
 #
@@ -160,6 +164,14 @@ def fillByteRange(value, byteArray, bitPos, bitLength):
 
 maxNum = 50
 minNum = -50
+
+def toSignedInt(number, modifier):
+	number = int(number) - int(modifier)
+	return number
+
+def toUnsignedInt(number, modifier):
+	number = int(number) + int(modifier)
+	return number
 
 def parseByteRange(element, byteView, bitPos, bitLength, results):
 	# this method parses data starting at bitPos, bitLength bits are remaining
@@ -172,7 +184,7 @@ def parseByteRange(element, byteView, bitPos, bitLength, results):
 
 			# read bits
 			result = byteView.readUnsignedIntBits(bitPos+1, 7, ENDIAN_BIG)
-			result = result - 50
+			result = toSignedInt(result, 50)
 
 			# return value to results
 			if (result &gt;= minNum and result &lt;= maxNum):
@@ -189,17 +201,18 @@ def fillByteRange(value, byteArray, bitPos, bitLength):
 	# this method translates edited values back to the file
 	&quot;&quot;&quot;fillByteRange method&quot;&quot;&quot;
 
-	# get number edited by user
-	number = value.getSigned()
-	converted = number + 50
+	bytePos = bitPos/8
 
-	if (number &gt;= minNum and number &lt;= maxNum):
-		byteArray.writeUnsignedIntBits(converted, bitPos, 8, ENDIAN_BIG)
+	number = value.getString()
+	converted = toUnsignedInt(number, 50)
+
+	if (abs(int(number)) &lt;= maxNum):
+		byteArray.writeUnsignedInt(converted, bytePos, 1, ENDIAN_BIG)
 	else:
 		print(&quot;Input value out of range (&quot; + str(minNum) + &quot;-&quot; + str(maxNum) + &quot;). Value not updated.&quot;)
 </source>
             </script>
-            <script name="AX73 VX90 100 unsigned" type="DataType" id="341">
+            <script name="100 unsigned" type="DataType" id="341">
                 <source language="Python">
 # AX73 VX90 100 unsigned
 #
@@ -234,11 +247,13 @@ def fillByteRange(value, byteArray, bitPos, bitLength):
 	# this method translates edited values back to the file
 	&quot;&quot;&quot;fillByteRange method&quot;&quot;&quot;
 
+	bytePos = bitPos/8
+
 	# get number edited by user
 	number = value.getUnsigned()
 
 	if (number &lt;= maxNum):
-		byteArray.writeUnsignedIntBits(number, bitPos, 8, ENDIAN_BIG)
+		byteArray.replaceByte(bytePos, number)
 	else:
 		print(&quot;Input value out of range (0-&quot; + str(maxNum) + &quot;). Value not updated.&quot;)
 </source>
@@ -272,20 +287,20 @@ def fillByteRange(value, byteArray, bitPos, bitLength):
 </source>
             </script>
         </scripts>
-        <structure name="Start of System Exclusive" id="71" encoding="ISO_8859-1:1987" endian="big" signed="no">
-            <number name="Byte" mustmatch="yes" id="72" type="integer" length="1" display="hex">
+        <structure name="Start of System Exclusive" id="7" encoding="ISO_8859-1:1987" endian="big" signed="no">
+            <number name="Byte" mustmatch="yes" id="8" type="integer" length="1" display="hex">
                 <fixedvalues>
                     <fixedvalue name="SOX" value="0xF0"/>
                 </fixedvalues>
             </number>
         </structure>
-        <structure name="Single Byte ID" id="74" length="1" alignment="0" repeatmin="0" encoding="ISO_8859-1:1987" endian="big" signed="no">
-            <binary name="First bit" mustmatch="yes" id="75" length="1" lengthunit="bit">
+        <structure name="Single Byte ID" id="10" length="1" alignment="0" repeatmin="0" encoding="ISO_8859-1:1987" endian="big" signed="no">
+            <binary name="First bit" mustmatch="yes" id="11" length="1" lengthunit="bit">
                 <fixedvalues>
                     <fixedvalue name="Zero" value="00"/>
                 </fixedvalues>
             </binary>
-            <number name="Manufacturer" id="76" type="integer" length="7" lengthunit="bit" display="hex">
+            <number name="Manufacturer" id="12" type="integer" length="7" lengthunit="bit" display="hex">
                 <fixedvalues>
                     <fixedvalue name="Sequential Circuits" value="0x1"/>
                     <fixedvalue name="Moog" value="0x4"/>
@@ -325,13 +340,13 @@ def fillByteRange(value, byteArray, bitPos, bitLength):
                 </fixedvalues>
             </number>
         </structure>
-        <structure name="Multi Byte ID" id="78" length="3" alignment="0" repeatmin="0" encoding="ISO_8859-1:1987" endian="big" signed="no">
-            <number name="First Byte" mustmatch="yes" id="79" length="1" display="hex">
+        <structure name="Multi Byte ID" id="14" length="3" alignment="0" repeatmin="0" encoding="ISO_8859-1:1987" endian="big" signed="no">
+            <number name="First Byte" mustmatch="yes" id="15" length="1" display="hex">
                 <fixedvalues>
                     <fixedvalue name="Extended" value="0x0"/>
                 </fixedvalues>
             </number>
-            <number name="Manufacturer" id="80" type="integer" length="2" display="hex">
+            <number name="Manufacturer" id="16" type="integer" length="2" display="hex">
                 <fixedvalues>
                     <fixedvalue name="Digital Music Corporation" value="0x7"/>
                     <fixedvalue name="New England Digital" value="0x9"/>
@@ -394,8 +409,8 @@ def fillByteRange(value, byteArray, bitPos, bitLength):
                 </fixedvalues>
             </number>
         </structure>
-        <structure name="Identification Code" id="82" length="0" encoding="ISO_8859-1:1987" endian="big" signed="no">
-            <scriptelement name="mapID" id="83">
+        <structure name="Identification Code" id="18" length="0" encoding="ISO_8859-1:1987" endian="big" signed="no">
+            <scriptelement name="mapID" id="19">
                 <script name="unnamed" type="Generic">
                     <source language="Python">
 currentGrammar = currentMapper.getCurrentGrammar()
@@ -416,91 +431,91 @@ else:
                 </script>
             </scriptelement>
         </structure>
-        <structure name="Voice Program" id="85" length="52" repeatmin="100" repeatmax="100" encoding="ANSI_X3.4-1968" endian="big" signed="no">
-            <structure name="Oscillator" id="86" length="8" alignment="0" fillcolor="688473">
-                <custom name="VCO Octave (E00)" id="338" script="id:336"/>
-                <custom name="VCO Waveform (E01)" id="339" script="id:337"/>
-                <custom name="VCO Pulse Width (E02)" id="89" script="id:327"/>
-                <custom name="VCO Pulse Width Mod Speed (E03)" id="90" script="id:327"/>
-                <custom name="VCO Envelope Generator (E04)" id="91" script="id:327"/>
-                <custom name="Noise (E05)" id="92" script="id:327"/>
-                <custom name="Sampler (E06)" id="93" script="id:327"/>
-                <custom name="Balance (E07)" id="94" script="id:327"/>
+        <structure name="Voice Program" id="21" length="52" repeatmin="100" repeatmax="100" encoding="ANSI_X3.4-1968" endian="big" signed="no">
+            <structure name="Oscillator" id="22" length="8" alignment="0" fillcolor="688473">
+                <custom name="VCO Octave (E00)" id="23" script="id:336"/>
+                <custom name="VCO Waveform (E01)" id="24" script="id:337"/>
+                <custom name="VCO Pulse Width (E02)" id="25" script="id:327"/>
+                <custom name="VCO Pulse Width Mod Speed (E03)" id="26" script="id:327"/>
+                <custom name="VCO Envelope Generator (E04)" id="27" script="id:327"/>
+                <custom name="Noise (E05)" id="28" script="id:327"/>
+                <custom name="Sampler (E06)" id="29" script="id:327"/>
+                <custom name="Balance (E07)" id="30" script="id:327"/>
             </structure>
-            <structure name="Filter" id="96" length="7" alignment="0" fillcolor="879E81">
-                <custom name="VCF Frequency (E10)" id="97" script="id:327"/>
-                <custom name="VCF Resonance (E11)" id="98" script="id:327"/>
-                <custom name="VCF Osc Mod (E12)" id="99" script="id:327"/>
-                <custom name="VCF Envelope Polarity (E13)" id="342" script="id:340"/>
-                <custom name="VCF Key Follow (E14)" id="101" script="id:327"/>
-                <custom name="VCF Velocity (E15)" id="102" script="id:327"/>
-                <custom name="High Pass Filter (E16)" id="103" script="id:327"/>
+            <structure name="Filter" id="32" length="7" alignment="0" fillcolor="879E81">
+                <custom name="VCF Frequency (E10)" id="33" script="id:327"/>
+                <custom name="VCF Resonance (E11)" id="34" script="id:327"/>
+                <custom name="VCF Osc Mod (E12)" id="35" script="id:327"/>
+                <custom name="VCF Envelope Polarity (E13)" id="97" script="id:340"/>
+                <custom name="VCF Key Follow (E14)" id="36" script="id:327"/>
+                <custom name="VCF Velocity (E15)" id="37" script="id:327"/>
+                <custom name="High Pass Filter (E16)" id="38" script="id:327"/>
             </structure>
-            <structure name="Envelope" id="105" length="9" alignment="0" fillcolor="B9C6A7">
-                <custom name="Envelope Mode (E20)" id="106" script="id:327"/>
-                <custom name="EGA Attack (E21)" id="107" script="id:327"/>
-                <custom name="EGA Decay (E22)" id="108" script="id:327"/>
-                <custom name="EGA Sustain (E23)" id="109" script="id:327"/>
-                <custom name="EGA Release (E24)" id="110" script="id:327"/>
-                <custom name="EGO Attack (E25)" id="111" script="id:327"/>
-                <custom name="EGO Decay (E26)" id="112" script="id:327"/>
-                <custom name="EGO Sustain (E27)" id="113" script="id:327"/>
-                <custom name="EGO Release (E28)" id="114" script="id:327"/>
+            <structure name="Envelope" id="40" length="9" alignment="0" fillcolor="B9C6A7">
+                <custom name="Envelope Mode (E20)" id="41" script="id:327"/>
+                <custom name="EGA Attack (E21)" id="42" script="id:327"/>
+                <custom name="EGA Decay (E22)" id="43" script="id:327"/>
+                <custom name="EGA Sustain (E23)" id="44" script="id:327"/>
+                <custom name="EGA Release (E24)" id="45" script="id:327"/>
+                <custom name="EGO Attack (E25)" id="46" script="id:327"/>
+                <custom name="EGO Decay (E26)" id="47" script="id:327"/>
+                <custom name="EGO Sustain (E27)" id="48" script="id:327"/>
+                <custom name="EGO Release (E28)" id="49" script="id:327"/>
             </structure>
-            <structure name="Attenuator" id="116" length="2" alignment="0" fillcolor="E4E4CB">
-                <custom name="VCA Level (E30)" id="117" script="id:327"/>
-                <custom name="VCA Velocity (E31)" id="118" script="id:327"/>
+            <structure name="Attenuator" id="51" length="2" alignment="0" fillcolor="E4E4CB">
+                <custom name="VCA Level (E30)" id="52" script="id:327"/>
+                <custom name="VCA Velocity (E31)" id="53" script="id:327"/>
             </structure>
-            <structure name="Low Frequency Oscillator" id="120" length="5" alignment="0" fillcolor="F2F3F2">
-                <custom name="LFO Select (E40)" id="121" script="id:327"/>
-                <custom name="LFO Waveform (E41)" id="122" script="id:327"/>
-                <custom name="LFO Frequency (E42)" id="123" script="id:327"/>
-                <custom name="LFO Depth (E43)" id="124" script="id:327"/>
-                <custom name="LFO Delay (E44)" id="125" script="id:327"/>
+            <structure name="Low Frequency Oscillator" id="55" length="5" alignment="0" fillcolor="F2F3F2">
+                <custom name="LFO Select (E40)" id="56" script="id:327"/>
+                <custom name="LFO Waveform (E41)" id="57" script="id:327"/>
+                <custom name="LFO Frequency (E42)" id="58" script="id:327"/>
+                <custom name="LFO Depth (E43)" id="59" script="id:327"/>
+                <custom name="LFO Delay (E44)" id="60" script="id:327"/>
             </structure>
-            <structure name="Misc" id="127" length="9" alignment="0">
-                <custom name="Chorus (E45)" id="128" script="id:327"/>
-                <custom name="Voice Assign (E50)" id="129" script="id:327"/>
-                <custom name="Portamento (E51)" id="130" script="id:327"/>
-                <custom name="Voice Detune (E52)" id="131" script="id:327"/>
-                <custom name="Wheel Bend VCO (E60)" id="132" script="id:327"/>
-                <custom name="Wheel Bend VCF (E61)" id="133" script="id:327"/>
-                <custom name="Wheel Mod (E62)" id="134" script="id:327"/>
-                <custom name="MIDI Split (E70)" id="135" script="id:327"/>
-                <custom name="MIDI Split Point (E71)" id="136" script="id:327"/>
+            <structure name="Misc" id="62" length="9" alignment="0">
+                <custom name="Chorus (E45)" id="63" script="id:327"/>
+                <custom name="Voice Assign (E50)" id="64" script="id:327"/>
+                <custom name="Portamento (E51)" id="65" script="id:327"/>
+                <custom name="Voice Detune (E52)" id="66" script="id:327"/>
+                <custom name="Wheel Bend VCO (E60)" id="67" script="id:327"/>
+                <custom name="Wheel Bend VCF (E61)" id="68" script="id:327"/>
+                <custom name="Wheel Mod (E62)" id="69" script="id:327"/>
+                <custom name="MIDI Split (E70)" id="70" script="id:327"/>
+                <custom name="MIDI Split Point (E71)" id="71" script="id:327"/>
             </structure>
-            <string name="Label (E80)" id="138" fillcolor="EC8140" type="fixed-length" length="12"/>
+            <string name="Label (E80)" id="73" fillcolor="EC8140" type="fixed-length" length="12"/>
         </structure>
-        <structure name="Device ID" id="140" encoding="ISO_8859-1:1987" endian="big" signed="no">
-            <number name="Device" id="141" type="integer" length="1" display="hex">
+        <structure name="Device ID" id="75" encoding="ISO_8859-1:1987" endian="big" signed="no">
+            <number name="Device" id="76" type="integer" length="1" display="hex">
                 <fixedvalues>
                     <fixedvalue name="all devices" value="0x7F"/>
                 </fixedvalues>
             </number>
         </structure>
-        <structure name="Product ID" id="143" encoding="ISO_8859-1:1987" endian="big" signed="no">
-            <number name="Product" id="144" type="integer" length="1" display="hex"/>
+        <structure name="Product ID" id="78" encoding="ISO_8859-1:1987" endian="big" signed="no">
+            <number name="Product" id="79" type="integer" length="1" display="hex"/>
         </structure>
-        <structure name="Voice Program Data" id="146" length="0" alignment="0" encoding="ISO_8859-1:1987" endian="big" signed="no">
-            <structref name="Voice Program" id="147" repeatmax="100" structure="id:85"/>
+        <structure name="Voice Program Data" id="81" length="0" alignment="0" encoding="ISO_8859-1:1987" endian="big" signed="no">
+            <structref name="Voice Program" id="82" repeatmax="100" structure="id:21"/>
         </structure>
-        <structure name="End of System Exclusive" id="149" encoding="ISO_8859-1:1987" endian="big" signed="no">
-            <number name="Byte" mustmatch="yes" id="150" type="integer" length="1" display="hex">
+        <structure name="End of System Exclusive" id="84" encoding="ISO_8859-1:1987" endian="big" signed="no">
+            <number name="Byte" mustmatch="yes" id="85" type="integer" length="1" display="hex">
                 <fixedvalues>
                     <fixedvalue name="EOX" value="0xF7"/>
                 </fixedvalues>
             </number>
         </structure>
-        <structure name="Chunk" id="152" repeatmax="-1" encoding="ISO_8859-1:1987" endian="big" signed="no">
-            <structref name="Start of System Exclusive" id="153" structure="id:71"/>
-            <structref name="Identification Code" id="154" structure="id:82"/>
-            <structref name="Device ID" id="155" structure="id:140"/>
-            <structref name="Product ID" id="156" structure="id:143"/>
-            <structref name="Voice Program Data" id="157" structure="id:146"/>
-            <structref name="End of System Exclusive" id="158" structure="id:149"/>
+        <structure name="Chunk" id="87" repeatmax="-1" encoding="ISO_8859-1:1987" endian="big" signed="no">
+            <structref name="Start of System Exclusive" id="88" structure="id:7"/>
+            <structref name="Identification Code" id="89" structure="id:18"/>
+            <structref name="Device ID" id="90" structure="id:75"/>
+            <structref name="Product ID" id="91" structure="id:78"/>
+            <structref name="Voice Program Data" id="92" structure="id:81"/>
+            <structref name="End of System Exclusive" id="93" structure="id:84"/>
         </structure>
-        <structure name="MIDI System Exclusive" id="70" encoding="ISO_8859-1:1987" endian="big" signed="no">
-            <structref name="Chunk" id="160" repeatmax="-1" structure="id:152"/>
+        <structure name="MIDI System Exclusive" id="6" encoding="ISO_8859-1:1987" endian="big" signed="no">
+            <structref name="Chunk" id="95" repeatmax="-1" structure="id:87"/>
         </structure>
     </grammar>
 </ufwb>

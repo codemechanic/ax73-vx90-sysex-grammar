@@ -36,10 +36,12 @@ def fillByteRange(value, byteArray, bitPos, bitLength):
 	# this method translates edited values back to the file
 	"""fillByteRange method"""
 
+	bytePos = bitPos/8
+
 	# get number edited by user
 	number = value.getUnsigned()
 
 	if (number < len(valueLabels)):
-		byteArray.writeUnsignedIntBits(number, bitPos, 8, ENDIAN_BIG)
+		byteArray.replaceByte(bytePos, number)
 	else:
 		print("Input value out of range (0-" + str(len(valueLabels)-1) + "). Value not updated.")

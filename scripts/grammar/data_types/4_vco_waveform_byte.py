@@ -7,7 +7,7 @@
 # VCO Waveform Labels 0-3
 
 from enum import Enum
-valueLabels = Enum('VCO Waveform', 'Saw, Triangle, Pulse, Saw + Triangle', start=0)
+valueLabels = Enum('VCO Waveform', 'Saw, Triangle, Pulse, Saw+Triangle', start=0)
 
 def parseByteRange(element, byteView, bitPos, bitLength, results):
 	# this method parses data starting at bitPos, bitLength bits are remaining
@@ -36,10 +36,12 @@ def fillByteRange(value, byteArray, bitPos, bitLength):
 	# this method translates edited values back to the file
 	"""fillByteRange method"""
 
+	bytePos = bitPos/8
+
 	# get number edited by user
 	number = value.getUnsigned()
 
 	if (number < len(valueLabels)):
-		byteArray.writeUnsignedIntBits(number, bitPos, 8, ENDIAN_BIG)
+		byteArray.replaceByte(bytePos, number)
 	else:
 		print("Input value out of range (0-" + str(len(valueLabels)-1) + "). Value not updated.")
