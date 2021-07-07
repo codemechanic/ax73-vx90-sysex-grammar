@@ -3,7 +3,7 @@
     <grammar name="AX73 VX90 MIDI Sysex" start="id:6" author="Ben Allen" email="codemechanic@gmail.com" fileextension=".syx">
         <description>Grammar for the Akai AX73 and VX90 Synthesizer MIDI System Exclusive</description>
         <scripts>
-            <script name="2 EG Select byte&#10;#&#10;# 2 values 0-1&#10;&#10;from enum import Enum&#10;valueLabels = Enum('Filter uses', 'EGA, EGO', start=0)&#10;&#10;def parseByteRange(element, byteView, bitPos, bitLength, results):&#10;&#9;# this method parses data starting at bitPos, bitLength bits are remaining&#10;&#9;&quot;&quot;&quot;parseByteRange method&quot;&quot;&quot;&#10;&#10;&#9;processedBytes = 0&#10;&#9;initialBitLow = byteView.readUnsignedIntBits(bitPos, 1, ENDIAN_BIG)&#10;&#10;&#9;if (initialBitLow == 0):&#10;&#10;&#9;&#9;&#9;# read bits&#10;&#9;&#9;&#9;result = byteView.readUnsignedIntBits(bitPos+1, 7, ENDIAN_BIG)&#10;&#10;&#9;&#9;&#9;# return value to results&#10;&#9;&#9;&#9;if (result &lt; len(valueLabels)):&#10;&#9;&#9;&#9;&#9;value = Value()&#10;&#9;&#9;&#9;&#9;value.setString(str(result) + &quot;: &quot; + str(valueLabels(result).name))&#10;&#9;&#9;&#9;&#9;results.addElement(element, 1, 0, value)&#10;&#9;&#9;&#9;&#9;processedBytes = 1&#10;&#9;&#9;&#9;else:&#10;&#9;&#9;&#9;&#9;print(&quot;Value out of range (0-&quot; + str(len(valueLabels)-1) + &quot;)&quot;)&#10;&#10;&#9;return processedBytes&#10;&#10;def fillByteRange(value, byteArray, bitPos, bitLength):&#10;&#9;# this method translates edited values back to the file&#10;&#9;&quot;&quot;&quot;fillByteRange method&quot;&quot;&quot;&#10;&#10;&#9;bytePos = bitPos/8&#10;&#10;&#9;# get number edited by user&#10;&#9;number = value.getUnsigned()&#10;&#10;&#9;if (number &lt; len(valueLabels)):&#10;&#9;&#9;byteArray.replaceByte(bytePos, number)&#10;&#9;else:&#10;&#9;&#9;print(&quot;Input value out of range (0-&quot; + str(len(valueLabels)-1) + &quot;). Value not updated.&quot;)&#10;# AX73 VX90 EG Select byte&#10;#&#10;# 2 values 0-1&#10;&#10;from enum import Enum&#10;valueLabels = Enum('Filter uses', 'EGA, EGO', start=0)&#10;&#10;def parseByteRange(element, byteView, bitPos, bitLength, results):&#10;&#9;# this method parses data starting at bitPos, bitLength bits are remaining&#10;&#9;&quot;&quot;&quot;parseByteRange method&quot;&quot;&quot;&#10;&#10;&#9;processedBytes = 0&#10;&#9;initialBitLow = byteView.readUnsignedIntBits(bitPos, 1, ENDIAN_BIG)&#10;&#10;&#9;if (initialBitLow == 0):&#10;&#10;&#9;&#9;&#9;# read bits&#10;&#9;&#9;&#9;result = byteView.readUnsignedIntBits(bitPos+1, 7, ENDIAN_BIG)&#10;&#10;&#9;&#9;&#9;# return value to results&#10;&#9;&#9;&#9;if (result &lt; len(valueLabels)):&#10;&#9;&#9;&#9;&#9;value = Value()&#10;&#9;&#9;&#9;&#9;value.setString(str(result) + &quot;: &quot; + str(valueLabels(result).name))&#10;&#9;&#9;&#9;&#9;results.addElement(element, 1, 0, value)&#10;&#9;&#9;&#9;&#9;processedBytes = 1&#10;&#9;&#9;&#9;else:&#10;&#9;&#9;&#9;&#9;print(&quot;Value out of range (0-&quot; + str(len(valueLabels)-1) + &quot;)&quot;)&#10;&#10;&#9;return processedBytes&#10;&#10;def fillByteRange(value, byteArray, bitPos, bitLength):&#10;&#9;# this method translates edited values back to the file&#10;&#9;&quot;&quot;&quot;fillByteRange method&quot;&quot;&quot;&#10;&#10;&#9;bytePos = bitPos/8&#10;&#10;&#9;# get number edited by user&#10;&#9;number = value.getUnsigned()&#10;&#10;&#9;if (number &lt; len(valueLabels)):&#10;&#9;&#9;byteArray.replaceByte(bytePos, number)&#10;&#9;else:&#10;&#9;&#9;print(&quot;Input value out of range (0-&quot; + str(len(valueLabels)-1) + &quot;). Value not updated.&quot;)&#10;2 EG Select byte" type="DataType" id="275">
+            <script name="2 EG Select byte" type="DataType" id="999">
                 <source language="Python"># AX73 VX90 EG Select byte
 #
 # 2 values 0-1
@@ -141,8 +141,8 @@ def fillByteRange(value, byteArray, bitPos, bitLength):
 		print(&quot;Input value out of range (0-&quot; + str(len(valueLabels)-1) + &quot;). Value not updated.&quot;)
 </source>
             </script>
-            <script name="3 Assign byte" type="DataType" id="278">
-                <source language="Python"># AX73 VX90 Assign byte
+            <script name="3 Voice Assign byte" type="DataType" id="278">
+                <source language="Python"># AX73 VX90 Voice Assign byte
 #
 # 3 values 0-2
 
@@ -193,7 +193,7 @@ def fillByteRange(value, byteArray, bitPos, bitLength):
 # 3 values 0-2
 
 from enum import Enum
-valueLabels = Enum('Chorus', 'off, Mode 1, Mode 2', start=0)
+valueLabels = Enum('Chorus', 'off, Mode_1, Mode_2', start=0)
 
 def parseByteRange(element, byteView, bitPos, bitLength, results):
 	# this method parses data starting at bitPos, bitLength bits are remaining
@@ -233,13 +233,13 @@ def fillByteRange(value, byteArray, bitPos, bitLength):
 		print(&quot;Input value out of range (0-&quot; + str(len(valueLabels)-1) + &quot;). Value not updated.&quot;)
 </source>
             </script>
-            <script name="3 MIDI Split Point byte" type="DataType" id="280">
-                <source language="Python"># AX73 VX90 Midi Split Point byte
+            <script name="3 MIDI Split Status byte" type="DataType" id="280">
+                <source language="Python"># AX73 VX90 Midi Split Status byte
 #
 # 3 values 0-2
 
 from enum import Enum
-valueLabels = Enum('Midi Split Point', 'off, upper, lower', start=0)
+valueLabels = Enum('Midi Split Status', 'off, upper, lower', start=0)
 
 def parseByteRange(element, byteView, bitPos, bitLength, results):
 	# this method parses data starting at bitPos, bitLength bits are remaining
@@ -469,7 +469,7 @@ def fillByteRange(value, byteArray, bitPos, bitLength):
 # 13 values 0-12
 
 from enum import Enum
-valueLabels = Enum('Range ±', '0, 1 semitone, 2 semitones, 3 semitones, 4 semitones, 5 semitones, 6 semitones, 7 semitones, 8 semitones, 9 semitones, 10 semitones, 11 semitones, 1 octave', start=0)
+valueLabels = Enum('Range ±', '0, 1_semitone, 2_semitones, 3_semitones, 4_semitones, 5_semitones, 6_semitones, 7_semitones, 8_semitones, 9_semitones, 10_semitones, 11_semitones, 1_octave', start=0)
 
 def parseByteRange(element, byteView, bitPos, bitLength, results):
 	# this method parses data starting at bitPos, bitLength bits are remaining
@@ -824,46 +824,50 @@ else:
                 <custom name="Balance (E07)" id="30" script="id:341"/>
             </structure>
             <structure name="Filter" id="32" length="7" alignment="0" fillcolor="879E81">
-                <custom name="VCF Frequency (E10)" id="98" script="id:341"/>
-                <custom name="VCF Resonance (E11)" id="99" script="id:341"/>
-                <custom name="VCF Osc Mod (E12)" id="100" script="id:341"/>
-                <custom name="VCF Envelope Depth / Polarity (E13)" id="101" script="id:340"/>
-                <custom name="VCF Key Follow (E14)" id="102" script="id:341"/>
-                <custom name="VCF Velocity (E15)" id="103" script="id:340"/>
-                <custom name="High Pass Filter (E16)" id="104" script="id:341"/>
+                <custom name="VCF Frequency (E10)" id="33" script="id:341"/>
+                <custom name="VCF Resonance (E11)" id="34" script="id:341"/>
+                <custom name="VCF Osc Mod (E12)" id="35" script="id:341"/>
+                <custom name="VCF Envelope Depth / Polarity (E13)" id="36" script="id:340"/>
+                <custom name="VCF Key Follow (E14)" id="37" script="id:341"/>
+                <custom name="VCF Velocity (E15)" id="38" script="id:340"/>
+                <custom name="High Pass Filter (E16)" id="39" script="id:341"/>
             </structure>
             <structure name="Envelope" id="41" length="9" alignment="0" fillcolor="B9C6A7">
-                <custom name="Envelope Mode (E20)" id="42" script="id:327"/>
-                <custom name="EGA Attack (E21)" id="43" script="id:327"/>
-                <custom name="EGA Decay (E22)" id="44" script="id:327"/>
-                <custom name="EGA Sustain (E23)" id="45" script="id:327"/>
-                <custom name="EGA Release (E24)" id="46" script="id:327"/>
-                <custom name="EGO Attack (E25)" id="47" script="id:327"/>
-                <custom name="EGO Decay (E26)" id="48" script="id:327"/>
-                <custom name="EGO Sustain (E27)" id="49" script="id:327"/>
-                <custom name="EGO Release (E28)" id="50" script="id:327"/>
+                <custom name="Envelope Mode (E20)" id="107" script="id:999"/>
+                <custom name="EGA Attack (E21)" id="100" script="id:341"/>
+                <custom name="EGA Decay (E22)" id="101" script="id:341">
+                    <description>VCA always uses this EG</description>
+                </custom>
+                <custom name="EGA Sustain (E23)" id="102" script="id:341"/>
+                <custom name="EGA Release (E24)" id="103" script="id:341"/>
+                <custom name="EGO Attack (E25)" id="104" script="id:341">
+                    <description>VCO always uses this EG</description>
+                </custom>
+                <custom name="EGO Decay (E26)" id="105" script="id:341"/>
+                <custom name="EGO Sustain (E27)" id="106" script="id:341"/>
+                <custom name="EGO Release (E28)" id="108" script="id:341"/>
             </structure>
             <structure name="Attenuator" id="52" length="2" alignment="0" fillcolor="E4E4CB">
-                <custom name="VCA Level (E30)" id="53" script="id:327"/>
-                <custom name="VCA Velocity (E31)" id="54" script="id:327"/>
+                <custom name="VCA Level (E30)" id="109" script="id:341"/>
+                <custom name="VCA Velocity (E31)" id="111" script="id:340"/>
             </structure>
             <structure name="Low Frequency Oscillator" id="56" length="5" alignment="0" fillcolor="F2F3F2">
-                <custom name="LFO Select (E40)" id="57" script="id:327"/>
-                <custom name="LFO Waveform (E41)" id="58" script="id:327"/>
-                <custom name="LFO Frequency (E42)" id="59" script="id:327"/>
-                <custom name="LFO Depth (E43)" id="60" script="id:327"/>
-                <custom name="LFO Delay (E44)" id="61" script="id:327"/>
+                <custom name="LFO Destination (E40)" id="112" script="id:281"/>
+                <custom name="LFO Waveform (E41)" id="113" script="id:282"/>
+                <custom name="LFO Frequency (E42)" id="114" script="id:341"/>
+                <custom name="LFO Depth (E43)" id="115" script="id:341"/>
+                <custom name="LFO Delay (E44)" id="116" script="id:341"/>
             </structure>
             <structure name="Misc" id="63" length="9" alignment="0">
-                <custom name="Chorus (E45)" id="64" script="id:327"/>
-                <custom name="Voice Assign (E50)" id="65" script="id:327"/>
-                <custom name="Portamento (E51)" id="66" script="id:327"/>
-                <custom name="Voice Detune (E52)" id="67" script="id:327"/>
-                <custom name="Wheel Bend VCO (E60)" id="68" script="id:327"/>
-                <custom name="Wheel Bend VCF (E61)" id="69" script="id:327"/>
-                <custom name="Wheel Mod (E62)" id="70" script="id:327"/>
-                <custom name="MIDI Split (E70)" id="71" script="id:327"/>
-                <custom name="MIDI Split Point (E71)" id="72" script="id:327"/>
+                <custom name="Chorus (E45)" id="117" script="id:279"/>
+                <custom name="Voice Assign (E50)" id="118" script="id:278"/>
+                <custom name="Portamento (E51)" id="119" script="id:341"/>
+                <custom name="Voice Detune (E52)" id="120" script="id:341"/>
+                <custom name="Wheel Bend VCO (E60)" id="121" script="id:283"/>
+                <custom name="Wheel Bend VCF (E61)" id="122" script="id:341"/>
+                <custom name="Wheel Mod (E62)" id="123" script="id:341"/>
+                <custom name="MIDI Split Status (E70)" id="125" script="id:280"/>
+                <custom name="MIDI Split Point (E71)" id="126" script="id:341"/>
             </structure>
             <string name="Label (E80)" id="74" fillcolor="EC8140" type="fixed-length" length="12"/>
         </structure>

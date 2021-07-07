@@ -21,8 +21,8 @@
 | 16 | 10 | General Purpose Controller 1 (MSB) | E02 | VCO Pulse Width | 0-127 |
 | 17 | 11 | General Purpose Controller 2 (MSB) | E03 | VCO PWMS | 0-127 |
 | 18 | 12 | General Purpose Controller 3 (MSB) | E04 | VCO EG Depth | 0-127 |
-| 19 | 13 | General Purpose Controller 4 (MSB) | E05 | Noise on/off | 0-63: Noise Off, 64-127: Noise On |
-| 20 | 14 | | E06 | Sampler Enable | 0-63: Sampler not enabled, 64-127: Sampler Enabled |
+| 19 | 13 | General Purpose Controller 4 (MSB) | E05 | Noise on/off | 0-63: Noise off, 64-127: Noise on |
+| 20 | 14 | | E06 | Sampler Enable | 0-63: Sampler disabled, 64-127: Sampler enabled |
 | 21 | 15 | | E07 | A/B Balance | 0-127 |
 | 22 | 16 | | E12 | VCF OWFM | 0-127 |
 | 23 | 17 | | E13 | VCF EG Depth/Pol | 0-127 0: -50, 64: 0, 127: +50 |
