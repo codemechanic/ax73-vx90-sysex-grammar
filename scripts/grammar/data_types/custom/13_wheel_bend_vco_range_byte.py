@@ -2,12 +2,12 @@
 
 # This script is intended to be run from within the Akai AX73 and VX90 MIDI Sysex Grammar file
 
-# AX73 VX90 Sampler disabled/enabled byte
+# AX73 VX90 Wheel Bend VCO range byte
 #
-# 2 values 0-1
+# 13 values 0-12
 
 from enum import Enum
-valueLabels = Enum('Sampler', 'disabled, enabled', start=0)
+valueLabels = Enum('Range ±', '0, 1-semitone, 2-semitones, 3-semitones, 4-semitones, 5-semitones, 6-semitones, 7-semitones, 8-semitones, 9-semitones, 10-semitones, 11-semitones, 1-octave', start=0)
 
 def parseByteRange(element, byteView, bitPos, bitLength, results):
 	# this method parses data starting at bitPos, bitLength bits are remaining

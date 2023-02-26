@@ -7,7 +7,7 @@
 # 2 values 0-1
 
 from enum import Enum
-valueLabels = Enum('2 value', 'on, off', start=0)
+valueLabels = Enum('2 value', 'off, on', start=0)
 
 def parseByteRange(element, byteView, bitPos, bitLength, results):
 	# this method parses data starting at bitPos, bitLength bits are remaining

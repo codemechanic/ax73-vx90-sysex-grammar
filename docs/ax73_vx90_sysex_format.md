@@ -23,4 +23,4 @@ The voice program block follows the 4 byte sysex header. Each voice program (pat
 |-|-|-|
 | 5204 | F7 | End of System Exclusive byte (EOX) |
 
-<sub><a name="tauntek">1.</a> The [PDF version of this information](http://www.tauntek.com/ax73ccmap.pdf) was written by R. Grieb March 28, 2021 and is available on the Tauntek website.</sub>
+<sub><a name="tauntek">1.</a> The [PDF version of this information](http://www.tauntek.com/ax73ccmap.pdf) was written by R. Grieb March 28, 2021 and is available on the [Tauntek website](http://tauntek.com).</sub>

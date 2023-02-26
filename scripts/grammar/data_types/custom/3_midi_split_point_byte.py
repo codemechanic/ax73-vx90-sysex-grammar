@@ -2,12 +2,12 @@
 
 # This script is intended to be run from within the Akai AX73 and VX90 MIDI Sysex Grammar file
 
-# AX73 VX90 Midi Split Point byte
+# AX73 VX90 Midi Split Status byte
 #
 # 3 values 0-2
 
 from enum import Enum
-valueLabels = Enum('Midi Split Point', 'off, upper, lower', start=0)
+valueLabels = Enum('Midi Split Status', 'off, upper, lower', start=0)
 
 def parseByteRange(element, byteView, bitPos, bitLength, results):
 	# this method parses data starting at bitPos, bitLength bits are remaining

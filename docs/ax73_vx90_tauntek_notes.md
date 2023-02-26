@@ -17,4 +17,4 @@ To load the patches via MIDI, just send the sysex file back to the AX73 with Mem
 
 **Note:** You may need to slow down the MIDI transfer when sending the sysex to the AX73 or VX90. To do this in MIDI OX, set the buffer size to 1 and add a delay between buffers. Also, it's possible the MIDI pitch wheel messages could interfere with loading patches via sysex. Please ensure that nothing is sending these messages when you are loading a sysex patch file.
 
-<sub><a name="tauntek">1.</a> The [PDF version of this information](http://www.tauntek.com/ax73ccmap.pdf) was written by R. Grieb March 28, 2021 and is available on the Tauntek website.</sub>
+<sub><a name="tauntek">1.</a> The [PDF version of this information](http://www.tauntek.com/ax73ccmap.pdf) was written by R. Grieb March 28, 2021 and is available on the [Tauntek website](http://tauntek.com).</sub>

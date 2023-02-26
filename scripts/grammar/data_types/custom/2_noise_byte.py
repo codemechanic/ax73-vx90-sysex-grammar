@@ -2,12 +2,12 @@
 
 # This script is intended to be run from within the Akai AX73 and VX90 MIDI Sysex Grammar file
 
-# AX73 VX90 Noise on/off byte
+# AX73 VX90 Noise off/on byte
 #
 # 2 values 0-1
 
 from enum import Enum
-valueLabels = Enum('Noise', 'on, off', start=0)
+valueLabels = Enum('Noise', 'off, on', start=0)
 
 def parseByteRange(element, byteView, bitPos, bitLength, results):
 	# this method parses data starting at bitPos, bitLength bits are remaining
