@@ -36,4 +36,4 @@ The files found here are intended to be used in conjunction with the [Tauntek AX
 * [Tauntek AX73 and VX90 Firmware Notes](./docs/ax73_vx90_tauntek_notes.md)
 
 ## Special Thanks
-* Bob Grieb and [Tauntek](http://tauntek.com) for authoring the updated firmware for the Akai AX73 and VX90.
+* Bob Grieb of [Tauntek](http://tauntek.com) for authoring the updated firmware for the Akai AX73 and VX90.

@@ -139,4 +139,4 @@
 | 0-3 | 0-31, 32-63, 64-95, 96-127 | 4 values (VCO Octave E00, VCO Waveform E01 etc.) |
 | 0-1 | 0-63, 64-127 | 2 position switch (Noise off/on E05, Sampler disabled/enabled E06 etc.) |
 
-<sub><a name="tauntek">1.</a> The [PDF version of this information](http://www.tauntek.com/ax73ccmap.pdf) was written by R. Grieb March 28, 2021 and is available on the [Tauntek website](http://tauntek.com).</sub>
+<sub><a name="tauntek">1.</a> The [PDF version of this information](http://www.tauntek.com/ax73ccmap.pdf) was written by R. Grieb March 28, 2021 and is available on the [Tauntek](http://tauntek.com) website.</sub>

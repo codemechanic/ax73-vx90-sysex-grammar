@@ -25,4 +25,4 @@ The Roland GK-13 cable carries six audio signals, a mono guitar output, program 
 | 13 | –7VDC power | Black |
 | Shield | Ground | |
 
-<sub><a name="color">1.</a> Wire colors may differ from cable to cable.</sub>
+<sub><a name="color">1.</a> Wire color may differ from cable to cable.</sub>
