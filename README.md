@@ -18,7 +18,7 @@ Grammar files provide an interface for editing and translating human readable va
 
 For more information on using the Tauntek firmware and assigning MIDI controller data, please refer to the [firmware notes](./docs/ax73_vx90_tauntek_notes.md) included here, or the [PDF version](http://www.tauntek.com/ax73ccmap.pdf) available on the Tauntek website.
 
-## Useage
+## Usage
 
 The files found here are intended to be used in conjunction with the [Tauntek AX73 firmware](http://www.tauntek.com/AX73.htm). Analyzing AX73 and VX90 Sysex is possible without the firmware, however controlling those synths with Midi CCs and/or loading or saving Sysex over MIDI requires that you have the Tauntek firmware installed.
 
