@@ -38,7 +38,7 @@ def fillByteRange(value, byteArray, bitPos, bitLength):
 	# this method translates edited values back to the file
 	&quot;&quot;&quot;fillByteRange method&quot;&quot;&quot;
 
-	bytePos = bitPos/8
+	bytePos = bitPos//8
 
 	# get number edited by user
 	number = value.getUnsigned()
@@ -84,7 +84,7 @@ def fillByteRange(value, byteArray, bitPos, bitLength):
 	# this method translates edited values back to the file
 	&quot;&quot;&quot;fillByteRange method&quot;&quot;&quot;
 
-	bytePos = bitPos/8
+	bytePos = bitPos//8
 
 	# get number edited by user
 	number = value.getUnsigned()
@@ -130,7 +130,7 @@ def fillByteRange(value, byteArray, bitPos, bitLength):
 	# this method translates edited values back to the file
 	&quot;&quot;&quot;fillByteRange method&quot;&quot;&quot;
 
-	bytePos = bitPos/8
+	bytePos = bitPos//8
 
 	# get number edited by user
 	number = value.getUnsigned()
@@ -176,7 +176,7 @@ def fillByteRange(value, byteArray, bitPos, bitLength):
 	# this method translates edited values back to the file
 	&quot;&quot;&quot;fillByteRange method&quot;&quot;&quot;
 
-	bytePos = bitPos/8
+	bytePos = bitPos//8
 
 	# get number edited by user
 	number = value.getUnsigned()
@@ -222,7 +222,7 @@ def fillByteRange(value, byteArray, bitPos, bitLength):
 	# this method translates edited values back to the file
 	&quot;&quot;&quot;fillByteRange method&quot;&quot;&quot;
 
-	bytePos = bitPos/8
+	bytePos = bitPos//8
 
 	# get number edited by user
 	number = value.getUnsigned()
@@ -268,7 +268,7 @@ def fillByteRange(value, byteArray, bitPos, bitLength):
 	# this method translates edited values back to the file
 	&quot;&quot;&quot;fillByteRange method&quot;&quot;&quot;
 
-	bytePos = bitPos/8
+	bytePos = bitPos//8
 
 	# get number edited by user
 	number = value.getUnsigned()
@@ -314,7 +314,7 @@ def fillByteRange(value, byteArray, bitPos, bitLength):
 	# this method translates edited values back to the file
 	&quot;&quot;&quot;fillByteRange method&quot;&quot;&quot;
 
-	bytePos = bitPos/8
+	bytePos = bitPos//8
 
 	# get number edited by user
 	number = value.getUnsigned()
@@ -360,7 +360,7 @@ def fillByteRange(value, byteArray, bitPos, bitLength):
 	# this method translates edited values back to the file
 	&quot;&quot;&quot;fillByteRange method&quot;&quot;&quot;
 
-	bytePos = bitPos/8
+	bytePos = bitPos//8
 
 	# get number edited by user
 	number = value.getUnsigned()
@@ -406,7 +406,7 @@ def fillByteRange(value, byteArray, bitPos, bitLength):
 	# this method translates edited values back to the file
 	&quot;&quot;&quot;fillByteRange method&quot;&quot;&quot;
 
-	bytePos = bitPos/8
+	bytePos = bitPos//8
 
 	# get number edited by user
 	number = value.getUnsigned()
@@ -452,7 +452,7 @@ def fillByteRange(value, byteArray, bitPos, bitLength):
 	# this method translates edited values back to the file
 	&quot;&quot;&quot;fillByteRange method&quot;&quot;&quot;
 
-	bytePos = bitPos/8
+	bytePos = bitPos//8
 
 	# get number edited by user
 	number = value.getUnsigned()
@@ -498,7 +498,7 @@ def fillByteRange(value, byteArray, bitPos, bitLength):
 	# this method translates edited values back to the file
 	&quot;&quot;&quot;fillByteRange method&quot;&quot;&quot;
 
-	bytePos = bitPos/8
+	bytePos = bitPos//8
 
 	# get number edited by user
 	number = value.getUnsigned()
@@ -553,7 +553,7 @@ def fillByteRange(value, byteArray, bitPos, bitLength):
 	# this method translates edited values back to the file
 	&quot;&quot;&quot;fillByteRange method&quot;&quot;&quot;
 
-	bytePos = bitPos/8
+	bytePos = bitPos//8
 
 	number = value.getString()
 	converted = toUnsignedInt(number, 50)
@@ -598,7 +598,7 @@ def fillByteRange(value, byteArray, bitPos, bitLength):
 	# this method translates edited values back to the file
 	&quot;&quot;&quot;fillByteRange method&quot;&quot;&quot;
 
-	bytePos = bitPos/8
+	bytePos = bitPos//8
 
 	# get number edited by user
 	number = value.getUnsigned()

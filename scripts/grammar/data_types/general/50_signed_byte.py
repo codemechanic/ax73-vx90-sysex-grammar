@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 # This script is intended to be run from within the Akai AX73 and VX90 MIDI Sysex Grammar file
 
@@ -45,7 +45,7 @@ def fillByteRange(value, byteArray, bitPos, bitLength):
 	# this method translates edited values back to the file
 	"""fillByteRange method"""
 
-	bytePos = bitPos/8
+	bytePos = bitPos//8
 
 	number = value.getString()
 	converted = toUnsignedInt(number, maxNum)
